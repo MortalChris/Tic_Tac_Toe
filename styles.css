@@ -16,11 +16,14 @@ body{
 }
 
 div{
-    background-color: aqua;
+    background-color: white;
+    color: red;
     border: .3rem solid black;
     padding: 5rem;
     transition-duration: 0.4s;
 }
 div:hover{
-    background-color: yellow;
+    background-color: red;
+    transform: scale(1.2);
+    color: white;
 }
