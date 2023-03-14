@@ -1,0 +1,10 @@
+-Need a function that switches between player
+	Player x turn if O and X amount are equal in array
+	Player y turn if there are more X's than O's in array
+	End if both X and Y amount are equal in array	
+		Function that changes textContent or adds in image depending on turn
+
+-Function that determines who wins based on position in array
+	arrEx = [x, y, x
+			 x, x, y
+			 x, y, x,]
