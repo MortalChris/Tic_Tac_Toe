@@ -9,20 +9,21 @@ body{
     display: grid;
     place-content: center;
     grid-template-areas: 
+    "turn turn turn"
     "one two three"
     "four five six"
     "seven eight nine";
     background-color: brown;
 }
 
-div{
+.button{
     background-color: white;
     color: red;
     border: .3rem solid black;
     padding: 5rem;
     transition-duration: 0.4s;
 }
-div:hover{
+.button:hover{
     background-color: red;
     transform: scale(1.2);
     color: white;
