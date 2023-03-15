@@ -10,6 +10,7 @@ const gameBoardArr = ["", "", "", "", "", "", "", "", ""];
     const turnDiv = document.getElementById("Turn-text");
         let turnText = document.createElement("p");
         turnText.className = "turnText";
+        turnText.textContent = "It's " + currentPlayer + " turn";
         turnDiv.appendChild(turnText);
 
     function playerFactory(name,points,sign){
