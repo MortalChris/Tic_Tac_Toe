@@ -32,8 +32,13 @@ const gameBoardArr = ["", "", "", "", "", "", "", "", ""];
     // add event listeners to buttons
     buttons.forEach((button, index) => {
         button.addEventListener('click', () => {
-        button.style.backgroundColor = 'blue';
-        gameBoardArr[index] = currentPlayer.sign;
+            if (currentPlayer === playerX.name) {
+                button.style.backgroundColor = 'blue';
+                gameBoardArr[index] = currentPlayer.sign;
+        } else{
+            button.style.backgroundColor = 'green';
+            gameBoardArr[index] = currentPlayer.sign;
+        }
         console.log(gameBoardArr);
         turns();
         });
