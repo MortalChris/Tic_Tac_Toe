@@ -41,10 +41,17 @@ const gameBoardArr = ["", "", "", "", "", "", "", "", ""];
             gameBoardArr[index] = playerO.sign;
         }
         console.log(gameBoardArr);
+        decideWinner();
         turns();
         });
     });
 
+    function decideWinner(){
+        if ([0, 1, 2].map(x => gameBoardArr[x]).every(val => val === "X")) {
+            console.log("X wins");
+        };
+    }
     
+
 };
 gameBoard();

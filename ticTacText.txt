@@ -5,3 +5,13 @@
 		Function that changes textContent or adds in image depending on turn
 
 
+123
+456
+789
+
+147
+258
+369
+
+159
+753
