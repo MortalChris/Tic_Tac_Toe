@@ -35,14 +35,16 @@ const gameBoardArr = ["", "", "", "", "", "", "", "", ""];
         button.addEventListener('click', () => {
             if (currentPlayer === playerX.name) {
                 button.style.backgroundColor = 'blue';
-                gameBoardArr[index] = currentPlayer.sign;
+                gameBoardArr[index] = playerX.sign;
         } else{
             button.style.backgroundColor = 'green';
-            gameBoardArr[index] = currentPlayer.sign;
+            gameBoardArr[index] = playerO.sign;
         }
         console.log(gameBoardArr);
         turns();
         });
     });
+
+    
 };
 gameBoard();
