@@ -1,10 +1,26 @@
 const gameBoard = () => {
-
 const playerX =  playerFactory("Player X", 0, "X");
+    const playerXNameInput = document.getElementById("playerX-name");
+    const playerXPointsDisplay = document.getElementById("playerX-counter");
+
 const playerO = playerFactory("Player O", 0, "O");
+    const playerONameInput = document.getElementById("playerO-name");
+    const playerOPointsDisplay = document.getElementById("playerO-counter");
+
 let currentPlayer = playerX.name;
 const buttons = document.querySelectorAll(".button");
 const gameBoardArr = ["", "", "", "", "", "", "", "", ""];
+
+function playerFactory(name,points,sign){
+    return{
+        name,
+        points,
+        sign,
+        incrementPoints() {
+            this.points++;
+        }
+    };
+}
 
     //Shows player who turn is it
     const turnDiv = document.getElementById("Turn-text");
@@ -13,9 +29,6 @@ const gameBoardArr = ["", "", "", "", "", "", "", "", ""];
         turnText.textContent = "It's " + currentPlayer + " turn";
         turnDiv.appendChild(turnText);
 
-    function playerFactory(name,points,sign){
-        return{name,points,sign}
-    }
 
     function turns(){
       // switch players
@@ -41,50 +54,71 @@ const gameBoardArr = ["", "", "", "", "", "", "", "", ""];
             gameBoardArr[index] = playerO.sign;
         }
         console.log(gameBoardArr);
-        decideWinnerX();
-        decideWinnerO();
+        
+        decideWinner();
         turns();
         });
     });
 
-    function decideWinnerX(){
-        if ([0, 1, 2].map(x => gameBoardArr[x]).every(val => val === "X")) {
-            console.log("X wins");
-        } else if ([3, 4, 5].map(x => gameBoardArr[x]).every(val => val === "X")) {
-            console.log("X wins");
-        } else if ([6, 7, 8].map(x => gameBoardArr[x]).every(val => val === "X")) {
-            console.log("X wins");
-        } else if ([0, 3, 6].map(x => gameBoardArr[x]).every(val => val === "X")) {
-            console.log("X wins");
-        } else if ([1, 4, 7].map(x => gameBoardArr[x]).every(val => val === "X")) {
-            console.log("X wins");
-        } else if ([2, 5, 8].map(x => gameBoardArr[x]).every(val => val === "X")) {
-            console.log("X wins");
-        } else if ([0, 4, 8].map(x => gameBoardArr[x]).every(val => val === "X")) {
-            console.log("X wins");
-        } else if ([2, 4, 6].map(x => gameBoardArr[x]).every(val => val === "X")) {
-            console.log("X wins");
+    function decideWinner(){
+        let winner;  
+        //X wins
+        function winOutComes(){
+            if ([0, 1, 2].map(x => gameBoardArr[x]).every(val => val === "X")) {
+                winner = "X";
+            } else if ([3, 4, 5].map(x => gameBoardArr[x]).every(val => val === "X")) {
+                winner = "X";
+            } else if ([6, 7, 8].map(x => gameBoardArr[x]).every(val => val === "X")) {
+                winner = "X";
+            } else if ([0, 3, 6].map(x => gameBoardArr[x]).every(val => val === "X")) {
+                winner = "X";
+            } else if ([1, 4, 7].map(x => gameBoardArr[x]).every(val => val === "X")) {
+                winner = "X";
+            } else if ([2, 5, 8].map(x => gameBoardArr[x]).every(val => val === "X")) {
+                winner = "X";
+            } else if ([0, 4, 8].map(x => gameBoardArr[x]).every(val => val === "X")) {
+                winner = "X";
+            } else if ([2, 4, 6].map(x => gameBoardArr[x]).every(val => val === "X")) {
+                winner = "X";
+            }
+            //O wins
+            if ([0, 1, 2].map(x => gameBoardArr[x]).every(val => val === "O")) {
+                winner = "O";
+            } else if ([3, 4, 5].map(x => gameBoardArr[x]).every(val => val === "O")) {
+                winner = "O";
+            } else if ([6, 7, 8].map(x => gameBoardArr[x]).every(val => val === "O")) {
+                winner = "O";
+            } else if ([0, 3, 6].map(x => gameBoardArr[x]).every(val => val === "O")) {
+                winner = "O";
+            } else if ([1, 4, 7].map(x => gameBoardArr[x]).every(val => val === "O")) {
+                winner = "O";
+            } else if ([2, 5, 8].map(x => gameBoardArr[x]).every(val => val === "O")) {
+                winner = "O";
+            } else if ([0, 4, 8].map(x => gameBoardArr[x]).every(val => val === "O")) {
+                winner = "O";
+            } else if ([2, 4, 6].map(x => gameBoardArr[x]).every(val => val === "O")) {
+                winner = "O";
+            }
         }
-    }
-    function decideWinnerO(){
-        if ([0, 1, 2].map(x => gameBoardArr[x]).every(val => val === "O")) {
-            console.log("O wins");
-        } else if ([3, 4, 5].map(x => gameBoardArr[x]).every(val => val === "O")) {
-            console.log("O wins");
-        } else if ([6, 7, 8].map(x => gameBoardArr[x]).every(val => val === "O")) {
-            console.log("O wins");
-        } else if ([0, 3, 6].map(x => gameBoardArr[x]).every(val => val === "O")) {
-            console.log("O wins");
-        } else if ([1, 4, 7].map(x => gameBoardArr[x]).every(val => val === "O")) {
-            console.log("O wins");
-        } else if ([2, 5, 8].map(x => gameBoardArr[x]).every(val => val === "O")) {
-            console.log("O wins");
-        } else if ([0, 4, 8].map(x => gameBoardArr[x]).every(val => val === "O")) {
-            console.log("O wins");
-        } else if ([2, 4, 6].map(x => gameBoardArr[x]).every(val => val === "O")) {
-            console.log("O wins");
+        winOutComes();
+        
+        function endGame(){
+            if(winner == "X"){
+                playerX.incrementPoints();
+                playerXPointsDisplay.textContent = playerX.points;
+                console.log("We love a X win");
+                console.log(playerX.points);
+            } else if(winner == "O"){
+                playerO.incrementPoints();
+                playerOPointsDisplay.textContent = playerO.points;
+                console.log("We love a Y win");
+                console.log(playerX.points);
+            }
         }
+        endGame();
     }
+
+    
 
 };
 gameBoard();

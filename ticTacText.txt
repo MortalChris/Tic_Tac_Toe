@@ -5,7 +5,9 @@
 		Function that changes textContent or adds in image depending on turn
 
 -Make a module that allows players to input name and add start button
--Add reset button
+Modal
+	-Add reset button 
+	-add point counter
 
 012
 345

@@ -9,13 +9,13 @@ body{
     display: grid;
     place-content: center;
     grid-template-areas: 
-    "turn turn turn"
-    "one two three"
-    "four five six"
-    "seven eight nine";
+    "X turn turn turn O"
+    "X one two three O"
+    "X four five six O"
+    "X seven eight nine O";
     background-color: brown;
 }
-
+/* All buttons */
 .button{
     background-color: white;
     color: red;
@@ -28,3 +28,44 @@ body{
     transform: scale(1.2);
     color: white;
 }
+    #btn1{
+        grid-area: one;
+    }
+    #btn2{
+        grid-area: two;
+    }
+    #btn3{
+        grid-area: three;
+    }
+    #btn4{
+        grid-area: four;
+    }
+    #btn5{
+        grid-area: five;
+    }
+    #btn6{
+        grid-area: six;
+    }
+    #btn7{
+        grid-area: seven;
+    }
+    #btn8{
+        grid-area: eight;
+    }
+    #btn9{
+        grid-area: nine;
+    }
+
+/* Tells who turn it is */
+#turn-text{
+    grid-area: turn;
+}
+
+/*  */
+#playerX{
+    grid-area: X;
+}
+#playerO{
+    grid-area: O;
+}
+
