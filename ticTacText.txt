@@ -4,14 +4,16 @@
 	End if both X and Y amount are equal in array	
 		Function that changes textContent or adds in image depending on turn
 
+-Make a module that allows players to input name and add start button
+-Add reset button
 
-123
-456
-789
+012
+345
+678
 
+036
 147
 258
-369
 
-159
-753
+048
+246

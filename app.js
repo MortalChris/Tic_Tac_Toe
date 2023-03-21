@@ -41,17 +41,50 @@ const gameBoardArr = ["", "", "", "", "", "", "", "", ""];
             gameBoardArr[index] = playerO.sign;
         }
         console.log(gameBoardArr);
-        decideWinner();
+        decideWinnerX();
+        decideWinnerO();
         turns();
         });
     });
 
-    function decideWinner(){
+    function decideWinnerX(){
         if ([0, 1, 2].map(x => gameBoardArr[x]).every(val => val === "X")) {
             console.log("X wins");
-        };
+        } else if ([3, 4, 5].map(x => gameBoardArr[x]).every(val => val === "X")) {
+            console.log("X wins");
+        } else if ([6, 7, 8].map(x => gameBoardArr[x]).every(val => val === "X")) {
+            console.log("X wins");
+        } else if ([0, 3, 6].map(x => gameBoardArr[x]).every(val => val === "X")) {
+            console.log("X wins");
+        } else if ([1, 4, 7].map(x => gameBoardArr[x]).every(val => val === "X")) {
+            console.log("X wins");
+        } else if ([2, 5, 8].map(x => gameBoardArr[x]).every(val => val === "X")) {
+            console.log("X wins");
+        } else if ([0, 4, 8].map(x => gameBoardArr[x]).every(val => val === "X")) {
+            console.log("X wins");
+        } else if ([2, 4, 6].map(x => gameBoardArr[x]).every(val => val === "X")) {
+            console.log("X wins");
+        }
     }
-    
+    function decideWinnerO(){
+        if ([0, 1, 2].map(x => gameBoardArr[x]).every(val => val === "O")) {
+            console.log("O wins");
+        } else if ([3, 4, 5].map(x => gameBoardArr[x]).every(val => val === "O")) {
+            console.log("O wins");
+        } else if ([6, 7, 8].map(x => gameBoardArr[x]).every(val => val === "O")) {
+            console.log("O wins");
+        } else if ([0, 3, 6].map(x => gameBoardArr[x]).every(val => val === "O")) {
+            console.log("O wins");
+        } else if ([1, 4, 7].map(x => gameBoardArr[x]).every(val => val === "O")) {
+            console.log("O wins");
+        } else if ([2, 5, 8].map(x => gameBoardArr[x]).every(val => val === "O")) {
+            console.log("O wins");
+        } else if ([0, 4, 8].map(x => gameBoardArr[x]).every(val => val === "O")) {
+            console.log("O wins");
+        } else if ([2, 4, 6].map(x => gameBoardArr[x]).every(val => val === "O")) {
+            console.log("O wins");
+        }
+    }
 
 };
 gameBoard();
