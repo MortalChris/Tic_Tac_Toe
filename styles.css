@@ -69,3 +69,48 @@ body{
     grid-area: O;
 }
 
+/*Pop up modal container*/
+#modal-container{
+    margin: auto;
+    margin-top: 12rem;
+    display: grid;
+    place-content: center;
+
+}
+/*Modal form*/
+.modal-form{
+    display: grid;
+    grid-template-areas: 
+    "inputX inputO"
+    "btn btn"
+    ;
+}
+/*Player X label and input*/
+#playerX-input-container{
+    grid-area: inputX;
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+/*Player O label and input*/
+#playerO-input-container{
+    grid-area: inputO;
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+#btn-container{
+    grid-area: btn;
+}
+
+button{
+    width: 100%;
+}
+

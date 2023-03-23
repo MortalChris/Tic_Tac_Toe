@@ -66,38 +66,54 @@ function playerFactory(name,points,sign){
         function winOutComes(){
             if ([0, 1, 2].map(x => gameBoardArr[x]).every(val => val === "X")) {
                 winner = "X";
+                endGame();
             } else if ([3, 4, 5].map(x => gameBoardArr[x]).every(val => val === "X")) {
                 winner = "X";
+                endGame();
             } else if ([6, 7, 8].map(x => gameBoardArr[x]).every(val => val === "X")) {
                 winner = "X";
+                endGame();
             } else if ([0, 3, 6].map(x => gameBoardArr[x]).every(val => val === "X")) {
                 winner = "X";
+                endGame();
             } else if ([1, 4, 7].map(x => gameBoardArr[x]).every(val => val === "X")) {
                 winner = "X";
+                endGame();
             } else if ([2, 5, 8].map(x => gameBoardArr[x]).every(val => val === "X")) {
                 winner = "X";
+                endGame();
             } else if ([0, 4, 8].map(x => gameBoardArr[x]).every(val => val === "X")) {
                 winner = "X";
+                endGame();
             } else if ([2, 4, 6].map(x => gameBoardArr[x]).every(val => val === "X")) {
                 winner = "X";
+                endGame();
             }
             //O wins
             if ([0, 1, 2].map(x => gameBoardArr[x]).every(val => val === "O")) {
                 winner = "O";
+                endGame();
             } else if ([3, 4, 5].map(x => gameBoardArr[x]).every(val => val === "O")) {
                 winner = "O";
+                endGame();
             } else if ([6, 7, 8].map(x => gameBoardArr[x]).every(val => val === "O")) {
                 winner = "O";
+                endGame();
             } else if ([0, 3, 6].map(x => gameBoardArr[x]).every(val => val === "O")) {
                 winner = "O";
+                endGame();
             } else if ([1, 4, 7].map(x => gameBoardArr[x]).every(val => val === "O")) {
                 winner = "O";
+                endGame();
             } else if ([2, 5, 8].map(x => gameBoardArr[x]).every(val => val === "O")) {
                 winner = "O";
+                endGame();
             } else if ([0, 4, 8].map(x => gameBoardArr[x]).every(val => val === "O")) {
                 winner = "O";
+                endGame();
             } else if ([2, 4, 6].map(x => gameBoardArr[x]).every(val => val === "O")) {
                 winner = "O";
+                endGame();
             }
         }
         winOutComes();
@@ -106,16 +122,22 @@ function playerFactory(name,points,sign){
             if(winner == "X"){
                 playerX.incrementPoints();
                 playerXPointsDisplay.textContent = playerX.points;
+
                 console.log("We love a X win");
                 console.log(playerX.points);
             } else if(winner == "O"){
                 playerO.incrementPoints();
                 playerOPointsDisplay.textContent = playerO.points;
+
                 console.log("We love a Y win");
-                console.log(playerX.points);
+                console.log(playerO.points);
             }
         }
-        endGame();
+        
+
+        function displayEndgameCard(){
+            
+        }
     }
 
     
