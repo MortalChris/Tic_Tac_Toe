@@ -14,7 +14,7 @@
 
 body{
 	margin: auto;
-    margin-top: 12rem;
+    margin-top: 10rem;
     display: grid;
     place-content: center;
     grid-template-areas: 
@@ -67,16 +67,31 @@ body{
     }
 
 /* Tells who turn it is */
-#turn-text{
+#Turn-text{
     grid-area: turn;
+    color: var(--accent-color-2);
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
 }
 
-/*  */
+/* On each side of the play area */
+.player-info{
+    color: var(--accent-color-2);
+    text-align: center;
+    margin-top: 8rem;
+    font-size: 2.2rem;
+}
 #playerX{
     grid-area: X;
+    margin-right: 2rem;
 }
 #playerO{
     grid-area: O;
+    margin-left: 2rem;
+}
+.sign-text{
+    
 }
 
 /*Pop up modal container*/
