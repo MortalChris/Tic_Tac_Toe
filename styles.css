@@ -1,3 +1,12 @@
+:root{
+    --background-color: #473198;
+    --accent-color-1: #DAFFED;
+    --accent-color-2: #9BF3F0;
+    --accent-color-3: #4A0D67;
+    --accent-color-4: #010400;
+    --accent-color-5: #ADFC92;
+
+}
 *{
     margin: 0;
     padding: 0;
@@ -13,20 +22,21 @@ body{
     "X one two three O"
     "X four five six O"
     "X seven eight nine O";
-    background-color: brown;
+    background-color: var(--background-color);
 }
-/* All buttons */
+/* All play area buttons */
 .button{
-    background-color: white;
-    color: red;
-    border: .3rem solid black;
     padding: 5rem;
+    background-color: var(--accent-color-3);
+    color: var(--accent-color-2);
+    border: .3rem solid var(--background-color);
+    border-radius: 1rem;
     transition-duration: 0.4s;
 }
 .button:hover{
-    background-color: red;
+    background-color: var(--accent-color-1);
     transform: scale(1.2);
-    color: white;
+    color: var(--accent-color-3);
 }
     #btn1{
         grid-area: one;
@@ -72,22 +82,24 @@ body{
 /*Pop up modal container*/
 #modal-container{
     margin: auto;
-    margin-top: 12rem;
+    margin-top: 1.2rem;
     display: grid;
     place-content: center;
 
 }
 /*Modal form*/
 .modal-form{
-    display: grid;
+    /* margin: 2.2rem 11rem 26.4rem 11rem; */
+    font-size: 6rem;
+    /* display: grid;
     grid-template-areas: 
     "inputX inputO"
     "btn btn"
-    ;
+    ;  */
 }
 /*Player X label and input*/
 #playerX-input-container{
-    grid-area: inputX;
+    /* grid-area: inputX; */
     display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
@@ -97,7 +109,7 @@ body{
 }
 /*Player O label and input*/
 #playerO-input-container{
-    grid-area: inputO;
+    /* grid-area: inputO; */
     display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
@@ -106,11 +118,18 @@ body{
 	align-content: center;
 }
 
+input{
+    padding: 2rem;
+    border: 1px solid blue;
+}
+
 #btn-container{
-    grid-area: btn;
+    /* grid-area: btn; */
 }
 
 button{
+    padding: 2rem;
+    border: 1px solid blue;
     width: 100%;
 }
 
