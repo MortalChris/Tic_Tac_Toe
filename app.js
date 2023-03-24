@@ -7,6 +7,8 @@ const playerO = playerFactory("Player O", 0, "O");
     const playerONameInput = document.getElementById("playerO-name");
     const playerOPointsDisplay = document.getElementById("playerO-counter");
 
+const modal = document.getElementById("modal-container");
+const startBtn = document.getElementById("start-btn");
 let currentPlayer = playerX.name;
 const buttons = document.querySelectorAll(".button");
 const gameBoardArr = ["", "", "", "", "", "", "", "", ""];
@@ -136,10 +138,18 @@ function playerFactory(name,points,sign){
         
 
         function displayEndgameCard(){
-            
-        }
-    }
 
+        }
+        displayEndgameCard();
+    }
+    function modalClose(){
+        startBtn.addEventListener("click", () =>{
+            modal.style.display = "none";
+            // modal.close();
+            console.log("btn was clicked");
+        })
+    }
+    modalClose();
     
 
 };

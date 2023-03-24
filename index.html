@@ -8,18 +8,18 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body id="body">
-    <dialog open class="modal" id="modal-container">
+    <dialog class="modal" id="modal-container" open>
             <form class="modal-form" action="">
                 <div class="modal-unit" id="playerX-input-container">
                     <label for="PlayerX-label" class="x-label">Player X</label>
-                    <input type="text" name="playerX-name" id="playerX-name-field"/>
+                    <input type="text" name="playerX-name" id="playerX-name-field" placeholder="Enter name"/>
                 </div>
                 <div class="modal-unit" id="playerO-input-container">
                     <label for="PlayerO-label" class="o-label">Player O</label>
-                    <input type="text" name="playerO-name" id="playerO-name-field"/>
+                    <input type="text" name="playerO-name" id="playerO-name-field" placeholder="Enter name"/>
                 </div>
                 <div id="btn-container">
-                    <button id="start-btn">Start</button>
+                    <button type="button" id="start-btn">Start</button>
                 </div>
             </form>
     </dialog>
