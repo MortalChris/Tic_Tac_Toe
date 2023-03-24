@@ -5,8 +5,8 @@
     --accent-color-3: #4A0D67;
     --accent-color-4: #010400;
     --accent-color-5: #ADFC92;
-
 }
+
 *{
     margin: 0;
     padding: 0;
@@ -77,6 +77,7 @@ body{
 
 /* On each side of the play area */
 .player-info{
+    display: none;
     color: var(--accent-color-2);
     text-align: center;
     margin-top: 8rem;
@@ -90,31 +91,24 @@ body{
     grid-area: O;
     margin-left: 2rem;
 }
-.sign-text{
-    
-}
+
+
 
 /*Pop up modal container*/
 #modal-container{
     margin: auto;
-    margin-top: 1.2rem;
+    padding: 3rem 6rem 6rem 6rem;
     display: grid;
     place-content: center;
-
+    font-size: 6rem;
+    background-color: var(--background-color);
+    border-radius: 2rem;
 }
 /*Modal form*/
-.modal-form{
-    /* margin: 2.2rem 11rem 26.4rem 11rem; */
-    font-size: 6rem;
-    /* display: grid;
-    grid-template-areas: 
-    "inputX inputO"
-    "btn btn"
-    ;  */
-}
+
 /*Player X label and input*/
 #playerX-input-container{
-    /* grid-area: inputX; */
+    color: var(--accent-color-2);
     display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
@@ -124,7 +118,7 @@ body{
 }
 /*Player O label and input*/
 #playerO-input-container{
-    /* grid-area: inputO; */
+    color: var(--accent-color-2);
     display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
@@ -132,19 +126,34 @@ body{
 	align-items: center;
 	align-content: center;
 }
-
+.o-label{
+    margin-top: 1rem;
+}
 input{
+    margin-top: 2rem;
     padding: 2rem;
-    border: 1px solid blue;
+    background-color: var(--background-color);
+    border: 4px solid var(--accent-color-3);
+    border-radius: 2rem;
+    font-size: 2rem;
+    color: var(--accent-color-1);
 }
 
 #btn-container{
-    /* grid-area: btn; */
+    margin-top: 4rem;
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
 }
 
 button{
-    padding: 2rem;
-    border: 1px solid blue;
-    width: 100%;
+    padding: 2rem 10rem 2rem 10rem;
+    background-color: var(--accent-color-2);
+    border-radius: 2rem;
+    font-size: 2rem;
+    color: var(--background-color);
 }
 

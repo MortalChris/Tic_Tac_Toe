@@ -1,16 +1,22 @@
 const gameBoard = () => {
 const playerX =  playerFactory("Player X", 0, "X");
-    const playerXNameInput = document.getElementById("playerX-name");
+    const playerXNameInput = document.getElementById("playerX-name-field").value;
     const playerXPointsDisplay = document.getElementById("playerX-counter");
+    const playerXInfoDiv = document.getElementById("playerX");
+    const playerXNameDisplay = document.getElementById("playerX-name");
 
 const playerO = playerFactory("Player O", 0, "O");
-    const playerONameInput = document.getElementById("playerO-name");
+    const playerONameInput = document.getElementById("playerO-name-field").value;
     const playerOPointsDisplay = document.getElementById("playerO-counter");
+    const playerOInfoDiv = document.getElementById("playerO");
+    const playerONameDisplay = document.getElementById("playerO-name");
 
 const modal = document.getElementById("modal-container");
 const startBtn = document.getElementById("start-btn");
-let currentPlayer = playerX.name;
+const playerInfo = document.querySelectorAll(".player-info");
 const buttons = document.querySelectorAll(".button");
+
+let currentPlayer = playerX.name;
 const gameBoardArr = ["", "", "", "", "", "", "", "", ""];
 
 function playerFactory(name,points,sign){
@@ -134,6 +140,7 @@ function playerFactory(name,points,sign){
                 console.log("We love a Y win");
                 console.log(playerO.points);
             }
+            
         }
         
 
@@ -142,14 +149,19 @@ function playerFactory(name,points,sign){
         }
         displayEndgameCard();
     }
-    function modalClose(){
+    function startGame(){
         startBtn.addEventListener("click", () =>{
+            playerXNameDisplay.textContent = playerXNameInput;
+            playerONameDisplay.textContent = playerONameInput;
             modal.style.display = "none";
-            // modal.close();
+    
+            playerXInfoDiv.style.display = "block";
+            playerOInfoDiv.style.display = "block";
+            
             console.log("btn was clicked");
         })
     }
-    modalClose();
+    startGame();
     
 
 };
