@@ -1,19 +1,19 @@
 const gameBoard = () => {
 const playerX =  playerFactory("Player X", 0, "X");
-    const playerXNameInput = document.getElementById("playerX-name-field").value;
+    // const playerXNameInput = document.getElementById("playerX-name-field").value;
     const playerXPointsDisplay = document.getElementById("playerX-counter");
     const playerXInfoDiv = document.getElementById("playerX");
-    const playerXNameDisplay = document.getElementById("playerX-name");
+    // const playerXNameDisplay = document.getElementById("playerX-name");
 
 const playerO = playerFactory("Player O", 0, "O");
-    const playerONameInput = document.getElementById("playerO-name-field").value;
+    // const playerONameInput = document.getElementById("playerO-name-field").value;
     const playerOPointsDisplay = document.getElementById("playerO-counter");
     const playerOInfoDiv = document.getElementById("playerO");
-    const playerONameDisplay = document.getElementById("playerO-name");
+    // const playerONameDisplay = document.getElementById("playerO-name");
 
 const modal = document.getElementById("modal-container");
 const startBtn = document.getElementById("start-btn");
-const playerInfo = document.querySelectorAll(".player-info");
+// const playerInfo = document.querySelectorAll(".player-info");
 const buttons = document.querySelectorAll(".button");
 
 let currentPlayer = playerX.name;
@@ -55,10 +55,14 @@ function playerFactory(name,points,sign){
     buttons.forEach((button, index) => {
         button.addEventListener('click', () => {
             if (currentPlayer === playerX.name) {
+                button.textContent = playerX.sign;
+                button.style.color = "white";
                 button.style.backgroundColor = 'blue';
                 gameBoardArr[index] = playerX.sign;
         } else{
-            button.style.backgroundColor = 'green';
+            button.textContent = playerO.sign;
+            button.style.color = "white";
+            button.style.backgroundColor = 'lightblue';
             gameBoardArr[index] = playerO.sign;
         }
         console.log(gameBoardArr);
@@ -130,34 +134,42 @@ function playerFactory(name,points,sign){
             if(winner == "X"){
                 playerX.incrementPoints();
                 playerXPointsDisplay.textContent = playerX.points;
-
+                wipeBoard();
                 console.log("We love a X win");
-                console.log(playerX.points);
+                // console.log(playerX.points);
             } else if(winner == "O"){
                 playerO.incrementPoints();
                 playerOPointsDisplay.textContent = playerO.points;
-
+                wipeBoard();
                 console.log("We love a Y win");
-                console.log(playerO.points);
+                // console.log(playerO.points);
             }
             
         }
-        
+        function wipeBoard(){
+            gameBoardArr = ["", "", "", "", "", "", "", "", ""];
+            currentPlayer = playerX.name;
+            buttons.textContent = " ";
+            buttons.style.backgroundColor = "#473198";
 
-        function displayEndgameCard(){
-
+            console.log("Im doing soething");
         }
-        displayEndgameCard();
+    
+        // function displayEndgameCard(){
+
+        // }
+        // displayEndgameCard();
     }
     function startGame(){
         startBtn.addEventListener("click", () =>{
-            playerXNameDisplay.textContent = playerXNameInput;
-            playerONameDisplay.textContent = playerONameInput;
+            // playerXNameDisplay.textContent = playerXNameInput;
+            // playerONameDisplay.textContent = playerONameInput;
             modal.style.display = "none";
-    
             playerXInfoDiv.style.display = "block";
             playerOInfoDiv.style.display = "block";
             
+
+
             console.log("btn was clicked");
         })
     }

@@ -28,7 +28,7 @@ body{
 .button{
     padding: 5rem;
     background-color: var(--accent-color-3);
-    color: var(--accent-color-2);
+    color: var(--accent-color-3);
     border: .3rem solid var(--background-color);
     border-radius: 1rem;
     transition-duration: 0.4s;
@@ -97,6 +97,7 @@ body{
 /*Pop up modal container*/
 #modal-container{
     margin: auto;
+    margin-top: -5rem;
     padding: 3rem 6rem 6rem 6rem;
     display: grid;
     place-content: center;
