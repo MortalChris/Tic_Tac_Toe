@@ -17,7 +17,7 @@ const startBtn = document.getElementById("start-btn");
 const buttons = document.querySelectorAll(".button");
 
 let currentPlayer = playerX.name;
-const gameBoardArr = ["", "", "", "", "", "", "", "", ""];
+let gameBoardArr = ["", "", "", "", "", "", "", "", ""];
 
 function playerFactory(name,points,sign){
     return{
@@ -29,6 +29,18 @@ function playerFactory(name,points,sign){
         }
     };
 }
+function startGame(){
+    startBtn.addEventListener("click", () =>{
+        // playerXNameDisplay.textContent = playerXNameInput;
+        // playerONameDisplay.textContent = playerONameInput;
+        modal.style.display = "none";
+        playerXInfoDiv.style.display = "block";
+        playerOInfoDiv.style.display = "block";
+        
+        console.log("btn was clicked");
+    })
+}
+startGame();
 
     //Shows player who turn is it
     const turnDiv = document.getElementById("Turn-text");
@@ -54,21 +66,28 @@ function playerFactory(name,points,sign){
     // add event listeners to buttons
     buttons.forEach((button, index) => {
         button.addEventListener('click', () => {
-            if (currentPlayer === playerX.name) {
-                button.textContent = playerX.sign;
-                button.style.color = "white";
-                button.style.backgroundColor = 'blue';
-                gameBoardArr[index] = playerX.sign;
-        } else{
-            button.textContent = playerO.sign;
-            button.style.color = "white";
-            button.style.backgroundColor = 'lightblue';
-            gameBoardArr[index] = playerO.sign;
-        }
-        console.log(gameBoardArr);
+            for(let i = 0; i < gameBoardArr.length; i++){
+                if (gameBoardArr[index] == "X" || gameBoardArr[index] == "O") {
+                    console.log(i);
+                    return;
+                    }
+                    if (currentPlayer === playerX.name) {
+                        button.textContent = playerX.sign;
+                        button.style.color = "white";
+                        button.style.backgroundColor = 'blue';
+                        gameBoardArr[index] = playerX.sign;
+                    } else{
+                        button.textContent = playerO.sign;
+                        button.style.color = "white";
+                        button.style.backgroundColor = 'lightblue';
+                        gameBoardArr[index] = playerO.sign;
+                    }
+                    console.log(gameBoardArr);
+                
+                decideWinner();
+                turns();
+                }
         
-        decideWinner();
-        turns();
         });
     });
 
@@ -146,35 +165,15 @@ function playerFactory(name,points,sign){
             }
             
         }
+    }
+    
         function wipeBoard(){
             gameBoardArr = ["", "", "", "", "", "", "", "", ""];
             currentPlayer = playerX.name;
-            buttons.textContent = " ";
-            buttons.style.backgroundColor = "#473198";
-
-            console.log("Im doing soething");
-        }
-    
-        // function displayEndgameCard(){
-
-        // }
-        // displayEndgameCard();
-    }
-    function startGame(){
-        startBtn.addEventListener("click", () =>{
-            // playerXNameDisplay.textContent = playerXNameInput;
-            // playerONameDisplay.textContent = playerONameInput;
-            modal.style.display = "none";
-            playerXInfoDiv.style.display = "block";
-            playerOInfoDiv.style.display = "block";
-            
-
-
-            console.log("btn was clicked");
-        })
-    }
-    startGame();
-    
-
+            buttons.forEach(button => {
+                button.textContent = "";
+                button.style.backgroundColor = "#4A0D67";
+                })
+            }
 };
 gameBoard();

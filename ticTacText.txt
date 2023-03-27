@@ -8,7 +8,9 @@
 Modal
 	-Add reset button 
 	-add point counter
-
+	if(gameBoardArr[i] == " "){
+		
+	}
 012
 345
 678
