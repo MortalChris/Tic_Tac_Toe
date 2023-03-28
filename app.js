@@ -67,7 +67,7 @@ startGame();
     buttons.forEach((button, index) => {
         button.addEventListener('click', () => {
             for(let i = 0; i < gameBoardArr.length; i++){
-                if (gameBoardArr[index] == "X" || gameBoardArr[index] == "O") {
+                if (gameBoardArr[index] == "X" || gameBoardArr[index] == "O") {//tells if array index is filled or not
                     console.log(i);
                     return;
                     }
@@ -93,6 +93,7 @@ startGame();
 
     function decideWinner(){
         let winner;  
+        let notEmpty;
         //X wins
         function winOutComes(){
             if ([0, 1, 2].map(x => gameBoardArr[x]).every(val => val === "X")) {
@@ -120,6 +121,7 @@ startGame();
                 winner = "X";
                 endGame();
             }
+
             //O wins
             if ([0, 1, 2].map(x => gameBoardArr[x]).every(val => val === "O")) {
                 winner = "O";
@@ -145,6 +147,9 @@ startGame();
             } else if ([2, 4, 6].map(x => gameBoardArr[x]).every(val => val === "O")) {
                 winner = "O";
                 endGame();
+            } else if(notEmpty = gameBoardArr.every(val => val !== '')){
+                endGame();
+                
             }
         }
         winOutComes();
@@ -162,6 +167,9 @@ startGame();
                 wipeBoard();
                 console.log("We love a Y win");
                 // console.log(playerO.points);
+            } else{
+                console.log("Noones wins");
+                wipeBoard();
             }
             
         }
