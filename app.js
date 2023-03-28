@@ -36,7 +36,6 @@ function startGame(){
         modal.style.display = "none";
         playerXInfoDiv.style.display = "block";
         playerOInfoDiv.style.display = "block";
-        
         console.log("btn was clicked");
     })
 }
@@ -87,7 +86,6 @@ startGame();
                 decideWinner();
                 turns();
                 }
-        
         });
     });
 
@@ -157,7 +155,6 @@ startGame();
         function endRound(){
             if(winner == "X"){
                 playerX.incrementPoints();
-
                 playerXPointsDisplay.textContent = playerX.points;
                 wipeBoard();
                 console.log("We love a X win");
@@ -186,5 +183,6 @@ startGame();
                     })    
             }, 2000);
             }
+            
 };
 gameBoard();
