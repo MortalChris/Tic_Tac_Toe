@@ -98,71 +98,73 @@ startGame();
         function winOutComes(){
             if ([0, 1, 2].map(x => gameBoardArr[x]).every(val => val === "X")) {
                 winner = "X";
-                endGame();
+                endRound();
             } else if ([3, 4, 5].map(x => gameBoardArr[x]).every(val => val === "X")) {
                 winner = "X";
-                endGame();
+                endRound();
             } else if ([6, 7, 8].map(x => gameBoardArr[x]).every(val => val === "X")) {
                 winner = "X";
-                endGame();
+                endRound();
             } else if ([0, 3, 6].map(x => gameBoardArr[x]).every(val => val === "X")) {
                 winner = "X";
-                endGame();
+                endRound();
             } else if ([1, 4, 7].map(x => gameBoardArr[x]).every(val => val === "X")) {
                 winner = "X";
-                endGame();
+                endRound();
             } else if ([2, 5, 8].map(x => gameBoardArr[x]).every(val => val === "X")) {
                 winner = "X";
-                endGame();
+                endRound();
             } else if ([0, 4, 8].map(x => gameBoardArr[x]).every(val => val === "X")) {
                 winner = "X";
-                endGame();
+                endRound();
             } else if ([2, 4, 6].map(x => gameBoardArr[x]).every(val => val === "X")) {
                 winner = "X";
-                endGame();
+                endRound();
             }
 
             //O wins
             if ([0, 1, 2].map(x => gameBoardArr[x]).every(val => val === "O")) {
                 winner = "O";
-                endGame();
+                endRound();
             } else if ([3, 4, 5].map(x => gameBoardArr[x]).every(val => val === "O")) {
                 winner = "O";
-                endGame();
+                endRound();
             } else if ([6, 7, 8].map(x => gameBoardArr[x]).every(val => val === "O")) {
                 winner = "O";
-                endGame();
+                endRound();
             } else if ([0, 3, 6].map(x => gameBoardArr[x]).every(val => val === "O")) {
                 winner = "O";
-                endGame();
+                endRound();
             } else if ([1, 4, 7].map(x => gameBoardArr[x]).every(val => val === "O")) {
                 winner = "O";
-                endGame();
+                endRound();
             } else if ([2, 5, 8].map(x => gameBoardArr[x]).every(val => val === "O")) {
                 winner = "O";
-                endGame();
+                endRound();
             } else if ([0, 4, 8].map(x => gameBoardArr[x]).every(val => val === "O")) {
                 winner = "O";
-                endGame();
+                endRound();
             } else if ([2, 4, 6].map(x => gameBoardArr[x]).every(val => val === "O")) {
                 winner = "O";
-                endGame();
+                endRound();
             } else if(notEmpty = gameBoardArr.every(val => val !== '')){
-                endGame();
+                endRound();
                 
             }
         }
         winOutComes();
         
-        function endGame(){
+        function endRound(){
             if(winner == "X"){
                 playerX.incrementPoints();
+
                 playerXPointsDisplay.textContent = playerX.points;
                 wipeBoard();
                 console.log("We love a X win");
                 // console.log(playerX.points);
             } else if(winner == "O"){
                 playerO.incrementPoints();
+                // playerOPointsDisplay.style.transform = "scale(2)"
                 playerOPointsDisplay.textContent = playerO.points;
                 wipeBoard();
                 console.log("We love a Y win");
@@ -174,14 +176,15 @@ startGame();
             
         }
     }
-    
         function wipeBoard(){
-            gameBoardArr = ["", "", "", "", "", "", "", "", ""];
-            currentPlayer = playerX.name;
-            buttons.forEach(button => {
-                button.textContent = "";
-                button.style.backgroundColor = "#4A0D67";
-                })
+            setTimeout(() => {
+                gameBoardArr = ["", "", "", "", "", "", "", "", ""];
+                currentPlayer = playerX.name;
+                buttons.forEach(button => {
+                    button.textContent = "";
+                    button.style.backgroundColor = "#4A0D67";
+                    })    
+            }, 2000);
             }
 };
 gameBoard();

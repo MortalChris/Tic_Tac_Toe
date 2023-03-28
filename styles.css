@@ -32,6 +32,7 @@ body{
     border: .3rem solid var(--background-color);
     border-radius: 1rem;
     transition-duration: 0.4s;
+    cursor: pointer;
 }
 .button:hover{
     background-color: var(--accent-color-1);
