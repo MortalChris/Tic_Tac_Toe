@@ -1,18 +1,19 @@
 const gameBoard = () => {
 const playerX =  playerFactory("Player X", 0, "X");
-    // const playerXNameInput = document.getElementById("playerX-name-field").value;
     const playerXPointsDisplay = document.getElementById("playerX-counter");
     const playerXInfoDiv = document.getElementById("playerX");
-    // const playerXNameDisplay = document.getElementById("playerX-name");
+    const playerXNameDisplay = document.getElementById("playerX-name");
 
 const playerO = playerFactory("Player O", 0, "O");
-    // const playerONameInput = document.getElementById("playerO-name-field").value;
     const playerOPointsDisplay = document.getElementById("playerO-counter");
     const playerOInfoDiv = document.getElementById("playerO");
-    // const playerONameDisplay = document.getElementById("playerO-name");
+    const playerONameDisplay = document.getElementById("playerO-name");
 
 const modal = document.getElementById("modal-container");
-const startBtn = document.getElementById("start-btn");
+    const playerXNameInput = document.getElementById("playerX-name-field");
+    const playerONameInput = document.getElementById("playerO-name-field");
+    const modalForm = document.getElementsByClassName("modal-form");
+    const startBtn = document.getElementById("start-btn");
 // const playerInfo = document.querySelectorAll(".player-info");
 const buttons = document.querySelectorAll(".button");
 
@@ -29,10 +30,13 @@ function playerFactory(name,points,sign){
         }
     };
 }
+
+
 function startGame(){
-    startBtn.addEventListener("click", () =>{
-        // playerXNameDisplay.textContent = playerXNameInput;
-        // playerONameDisplay.textContent = playerONameInput;
+    startBtn.addEventListener("click", function(event){
+        event.preventDefault();
+        playerXNameDisplay.textContent = playerXNameInput.value;
+        playerONameDisplay.textContent = playerONameInput.value;
         modal.style.display = "none";
         playerXInfoDiv.style.display = "block";
         playerOInfoDiv.style.display = "block";
@@ -40,6 +44,7 @@ function startGame(){
     })
 }
 startGame();
+
 
     //Shows player who turn is it
     const turnDiv = document.getElementById("Turn-text");
