@@ -148,9 +148,8 @@ startGame();
             } else if ([2, 4, 6].map(x => gameBoardArr[x]).every(val => val === "O")) {
                 winner = "O";
                 endRound();
-            } else if(notEmpty = gameBoardArr.every(val => val !== '')){
+            } else if(notEmpty = gameBoardArr.every(val => val !== '') && winner != "X" && winner != "O"){
                 endRound();
-                
             }
         }
         winOutComes();
@@ -182,6 +181,7 @@ document.getElementById("overlay").style.display = "none";
         function wipeBoard(){
             document.getElementById("overlay").style.display = "block";
             setTimeout(() => {
+                currentPlayer = playerX.name;
                 document.getElementById("overlay").style.display = "none";
                 gameBoardArr = ["", "", "", "", "", "", "", "", ""];
                 currentPlayer = playerX.name;
