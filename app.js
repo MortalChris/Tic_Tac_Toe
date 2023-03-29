@@ -63,31 +63,34 @@ startGame();
     }
 
     // add event listeners to buttons
-    buttons.forEach((button, index) => {
-        button.addEventListener('click', () => {
-            for(let i = 0; i < gameBoardArr.length; i++){
-                if (gameBoardArr[index] == "X" || gameBoardArr[index] == "O") {//tells if array index is filled or not
-                    console.log(i);
-                    return;
+    function placeSign(){
+        buttons.forEach((button, index) => {
+            button.addEventListener('click', () => {
+                for(let i = 0; i < gameBoardArr.length; i++){
+                    if (gameBoardArr[index] == "X" || gameBoardArr[index] == "O") {//tells if array index is filled or not
+                        console.log(i);
+                        return;
+                        }
+                        if (currentPlayer === playerX.name) {
+                            button.textContent = playerX.sign;
+                            button.style.color = "white";
+                            button.style.backgroundColor = 'blue';
+                            gameBoardArr[index] = playerX.sign;
+                        } else{
+                            button.textContent = playerO.sign;
+                            button.style.color = "white";
+                            button.style.backgroundColor = 'lightblue';
+                            gameBoardArr[index] = playerO.sign;
+                        }
+                        console.log(gameBoardArr);
+                    
+                    decideWinner();
+                    turns();
                     }
-                    if (currentPlayer === playerX.name) {
-                        button.textContent = playerX.sign;
-                        button.style.color = "white";
-                        button.style.backgroundColor = 'blue';
-                        gameBoardArr[index] = playerX.sign;
-                    } else{
-                        button.textContent = playerO.sign;
-                        button.style.color = "white";
-                        button.style.backgroundColor = 'lightblue';
-                        gameBoardArr[index] = playerO.sign;
-                    }
-                    console.log(gameBoardArr);
-                
-                decideWinner();
-                turns();
-                }
+            });
         });
-    });
+    };
+    placeSign();
 
     function decideWinner(){
         let winner;  
@@ -173,12 +176,18 @@ startGame();
             
         }
     }
+
+document.getElementById("overlay").style.display = "none";
+
         function wipeBoard(){
+            document.getElementById("overlay").style.display = "block";
             setTimeout(() => {
+                document.getElementById("overlay").style.display = "none";
                 gameBoardArr = ["", "", "", "", "", "", "", "", ""];
                 currentPlayer = playerX.name;
                 buttons.forEach(button => {
                     button.textContent = "";
+                    buttons.disabled = true;
                     button.style.backgroundColor = "#4A0D67";
                     })    
             }, 2000);
