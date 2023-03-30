@@ -33,13 +33,15 @@ function playerFactory(name,points,sign){
 
 
 function startGame(){
-    startBtn.addEventListener("click", function(event){
+    startBtn.addEventListener("submit", (event)=>{//Idk why "submit still refreshes"
         event.preventDefault();
         playerXNameDisplay.textContent = playerXNameInput.value;
         playerONameDisplay.textContent = playerONameInput.value;
+
         modal.style.display = "none";
         playerXInfoDiv.style.display = "block";
         playerOInfoDiv.style.display = "block";
+
         console.log("btn was clicked");
     })
 }
